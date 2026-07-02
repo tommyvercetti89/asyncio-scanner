@@ -1,0 +1,366 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Zafiyet Veritabani - Port bazli CVE ve guvenlik aciklari",
+    "last_update": "2026-07-02"
+  },
+  "vulnerabilities": {
+    "21": [
+      {
+        "ad": "FTP Sifresiz Iletisim",
+        "sev": "ORTA",
+        "acik": "Tum trafik sifrelenmez, kimlik bilgileri ele gecirilir",
+        "coz": "SFTP veya FTPS kullanin"
+      },
+      {
+        "ad": "FTP Anonim Erisim",
+        "sev": "ORTA",
+        "acik": "Anonim giris aktif olabilir",
+        "coz": "Anonim FTP erisimini kapatin"
+      }
+    ],
+    "22": [
+      {
+        "ad": "SSH Kaba Kuvvet Riski",
+        "sev": "ORTA",
+        "acik": "Parola tabanli SSH saldirisindan etkilenebilir",
+        "coz": "Anahtar dogrulama kullanin, fail2ban kurun"
+      }
+    ],
+    "23": [
+      {
+        "ad": "Telnet Sifresiz Protokol",
+        "sev": "YUKSEK",
+        "acik": "Tum trafik duz metin - sifre ve veriler acikta",
+        "coz": "SSH kullanin, Telnet portunu kapatin"
+      }
+    ],
+    "25": [
+      {
+        "ad": "SMTP Acik Role",
+        "sev": "ORTA",
+        "acik": "Acik relay spam icin kullanilabilir",
+        "coz": "Relay kisitlayin, kimlik dogrulama zorunlu yapin"
+      }
+    ],
+    "53": [
+      {
+        "ad": "DNS Amplifikasyon Riski",
+        "sev": "ORTA",
+        "acik": "DDoS amplifikasyon saldirisi icin kullanilabilir",
+        "coz": "Recursive DNS kisitlayin, rate limit ekleyin"
+      },
+      {
+        "ad": "DNS Zone Transfer",
+        "sev": "ORTA",
+        "acik": "Zone transfer tum DNS kayitlarini ifsa edebilir",
+        "coz": "Zone transferi sadece yetkili NS lere kisitlayin"
+      }
+    ],
+    "80": [
+      {
+        "ad": "HTTP Sifresiz Baglanti",
+        "sev": "DUSUK",
+        "acik": "Trafik sifrelenmez, MITM ile izlenebilir",
+        "coz": "HTTPS ye yonlendirin, HSTS etkinlestirin"
+      }
+    ],
+    "110": [
+      {
+        "ad": "POP3 Sifresiz",
+        "sev": "ORTA",
+        "acik": "E-posta ve kimlik bilgileri sifrelenmez",
+        "coz": "POP3S (995) kullanin"
+      }
+    ],
+    "139": [
+      {
+        "ad": "NetBIOS Bilgi Sizintisi",
+        "sev": "ORTA",
+        "acik": "Sistem adi ve calisma grubu bilgisi aciga cikabilir",
+        "coz": "NetBIOS u devre disi birakin veya guvenlik duvari ekleyin"
+      }
+    ],
+    "143": [
+      {
+        "ad": "IMAP Sifresiz",
+        "sev": "ORTA",
+        "acik": "E-posta icerigi sifrelenmez",
+        "coz": "IMAPS (993) kullanin"
+      }
+    ],
+    "161": [
+      {
+        "ad": "SNMP Public Community",
+        "sev": "YUKSEK",
+        "acik": "Varsayilan \"public\" string sistem bilgisini acar",
+        "coz": "SNMPv3 kullanin, community string degistirin"
+      }
+    ],
+    "389": [
+      {
+        "ad": "LDAP Sifresiz",
+        "sev": "ORTA",
+        "acik": "LDAP trafikle kimlik bilgileri sifrelenmez",
+        "coz": "LDAPS (636) kullanin"
+      }
+    ],
+    "443": [
+      {
+        "ad": "HTTPS Eski TLS",
+        "sev": "DUSUK",
+        "acik": "TLS 1.0/1.1 aktif olabilir",
+        "coz": "Yalnizca TLS 1.2+ kullanin"
+      }
+    ],
+    "445": [
+      {
+        "ad": "EternalBlue",
+        "sev": "KRITIK",
+        "cve": "CVE-2017-0144",
+        "acik": "SMBv1 uzaktan kod yurutme - WannaCry vektoru",
+        "coz": "MS17-010 yamasini uygulayin, SMBv1 kapatin"
+      },
+      {
+        "ad": "SMBGhost",
+        "sev": "KRITIK",
+        "cve": "CVE-2020-0796",
+        "acik": "SMBv3.1.1 arabellek tasimasi (Win10/Server2019)",
+        "coz": "KB4551762 yamasini uygulayin"
+      },
+      {
+        "ad": "PrintNightmare",
+        "sev": "KRITIK",
+        "cve": "CVE-2021-34527",
+        "acik": "Print Spooler uzaktan kod yurutme",
+        "coz": "MS21-034527 yamasi + Print Spooler devre disi"
+      },
+      {
+        "ad": "Zerologon",
+        "sev": "KRITIK",
+        "cve": "CVE-2020-1472",
+        "acik": "Netlogon protokol kimlik dogrulama atlatma",
+        "coz": "KB4571729 yamasini uygulayin"
+      },
+      {
+        "ad": "SMB Signing Disabled",
+        "sev": "ORTA",
+        "acik": "SMB imzalama devre disi, MITM relay saldirisi",
+        "coz": "SMB imzalamayi zorunlu hale getirin"
+      }
+    ],
+    "1433": [
+      {
+        "ad": "MSSQL Acik Veritabani",
+        "sev": "YUKSEK",
+        "acik": "Veritabani internete acik, brute force riski",
+        "coz": "Guvenlik duvariyla kisitlayin, SA hesabini kapatin"
+      }
+    ],
+    "1521": [
+      {
+        "ad": "Oracle DB Acik Erisim",
+        "sev": "YUKSEK",
+        "acik": "Oracle brute force ve veri sizintisi riski",
+        "coz": "Guvenlik duvariyla kisitlayin"
+      }
+    ],
+    "2375": [
+      {
+        "ad": "Docker API Kimlik Dogrulamasiz",
+        "sev": "KRITIK",
+        "acik": "Kimlik dogrulamasiz Docker API - tam sistem erisimi",
+        "coz": "TLS etkinlestirin veya yalnizca localhost a baglayin"
+      }
+    ],
+    "2049": [
+      {
+        "ad": "NFS Yetkisiz Montaj",
+        "sev": "YUKSEK",
+        "acik": "NFS dizinleri yetkisiz kullanicilara acik olabilir",
+        "coz": "NFS ihraclarini kisitlayin"
+      }
+    ],
+    "3306": [
+      {
+        "ad": "MySQL Acik Erisim",
+        "sev": "YUKSEK",
+        "acik": "MySQL internete acik, brute force riski",
+        "coz": "Guvenlik duvariyla kisitlayin, root uzak girisi kapatin"
+      }
+    ],
+    "3389": [
+      {
+        "ad": "BlueKeep",
+        "sev": "KRITIK",
+        "cve": "CVE-2019-0708",
+        "acik": "RDP uzaktan kod yurutme (Win7/Server2008)",
+        "coz": "Windows guncelleyin, NLA etkinlestirin"
+      },
+      {
+        "ad": "DejaBlue",
+        "sev": "KRITIK",
+        "cve": "CVE-2019-1181",
+        "acik": "RDP uzaktan kod yurutme (Win10/Server2019)",
+        "coz": "KB4512508 yamasini uygulayin"
+      },
+      {
+        "ad": "RDP Brute Force & Acik Erisim",
+        "sev": "YUKSEK",
+        "acik": "RDP internete acik, kaba kuvvet saldirisindan etkilenebilir",
+        "coz": "VPN arkasina alin, NLA + MFA etkinlestirin"
+      }
+    ],
+    "5432": [
+      {
+        "ad": "PostgreSQL Acik Erisim",
+        "sev": "YUKSEK",
+        "acik": "Veritabani internete acik",
+        "coz": "Yalnizca uygulama sunucusuna izin verin"
+      }
+    ],
+    "5601": [
+      {
+        "ad": "Kibana Kimlik Dogrulamasiz",
+        "sev": "YUKSEK",
+        "acik": "Kibana arayuzu acikta, tum loglara erisim",
+        "coz": "Nginx proxy + kimlik dogrulama ekleyin"
+      }
+    ],
+    "5900": [
+      {
+        "ad": "VNC Zayif Kimlik Dogrulama",
+        "sev": "YUKSEK",
+        "acik": "VNC genellikle zayif kimlik dogrulama kullanir",
+        "coz": "VPN arkasina alin, guclu parola + TLS kullanin"
+      }
+    ],
+    "6379": [
+      {
+        "ad": "Redis Kimlik Dogrulamasiz",
+        "sev": "KRITIK",
+        "acik": "Redis varsayilan olarak kimlik dogrulama istemez",
+        "coz": "requirepass ayarlayin, bind 127.0.0.1 kullanin"
+      },
+      {
+        "ad": "Redis Lua RCE",
+        "sev": "KRITIK",
+        "cve": "CVE-2022-0543",
+        "acik": "Lua sandbox atlatmayla uzaktan kod yurutme",
+        "coz": "Redis >= 6.2.6 surumune guncelleyin"
+      }
+    ],
+    "8080": [
+      {
+        "ad": "HTTP Proxy/Yonetim Acik",
+        "sev": "ORTA",
+        "acik": "Acik proxy veya yonetim arayuzu olabilir",
+        "coz": "Guvenlik duvariyla kisitlayin"
+      }
+    ],
+    "9200": [
+      {
+        "ad": "Elasticsearch Acik Erisim",
+        "sev": "KRITIK",
+        "acik": "Kimlik dogrulamasiz tum verilere erisim",
+        "coz": "X-Pack guvenligini etkinlestirin, IP kisitlayin"
+      }
+    ],
+    "11211": [
+      {
+        "ad": "Memcached DDoS Amplifikasyon",
+        "sev": "KRITIK",
+        "acik": "UDP Memcached DDoS saldirisi (51000x amplifikasyon)",
+        "coz": "UDP yi devre disi birakin, guvenlik duvari ekleyin"
+      }
+    ],
+    "27017": [
+      {
+        "ad": "MongoDB Kimlik Dogrulamasiz",
+        "sev": "KRITIK",
+        "acik": "MongoDB kimlik dogrulama olmadan calisabilir",
+        "coz": "Kimlik dogrulamayi etkinlestirin, bind IP kisitlayin"
+      }
+    ]
+  },
+  "banner_checks": [
+    {
+      "port": 22,
+      "pattern": "openssh[\\s_]?(\\d+)\\.(\\d+)",
+      "condition": "version_lt",
+      "version": [8, 0],
+      "vuln": {
+        "ad": "OpenSSH {version} - Eski Surum",
+        "sev": "YUKSEK",
+        "cve": "CVE-2023-38408",
+        "acik": "Eski OpenSSH surumu, bilinen aciklar iceriyor",
+        "coz": "OpenSSH >= 9.3 surumune guncelleyin"
+      }
+    },
+    {
+      "port": [80, 443, 8080, 8443],
+      "pattern": "apache/(\\d+)\\.(\\d+)\\.(\\d+)",
+      "condition": "version_lt",
+      "version": [2, 4, 51],
+      "vuln": {
+        "ad": "Apache {version} Path Traversal",
+        "sev": "KRITIK",
+        "cve": "CVE-2021-41773",
+        "acik": "CGI aktifse uzaktan kod yurutme mumkun",
+        "coz": "Apache >= 2.4.51 surumune guncelleyin"
+      }
+    },
+    {
+      "port": [80, 443, 8080, 8443],
+      "pattern": "apache/(\\d+)\\.(\\d+)\\.(\\d+)",
+      "condition": "version_lt",
+      "version": [2, 4, 54],
+      "vuln": {
+        "ad": "Apache {version} mod_proxy SSRF",
+        "sev": "YUKSEK",
+        "cve": "CVE-2024-38473",
+        "acik": "mod_proxy uzerinden SSRF ile dahili aga erisim",
+        "coz": "Apache >= 2.4.54 surumune guncelleyin"
+      }
+    },
+    {
+      "port": 22,
+      "pattern": "openssh\\s*_?(\\d+)\\.(\\d+)",
+      "condition": "version_lt",
+      "version": [9, 3],
+      "vuln": {
+        "ad": "OpenSSH Terrapin Attack",
+        "sev": "ORTA",
+        "cve": "CVE-2023-48795",
+        "acik": "SSH channel integrity downgrade saldirisi",
+        "coz": "OpenSSH >= 9.6 surumune guncelleyin"
+      }
+    },
+    {
+      "port": [80, 443, 8080, 8443],
+      "pattern": "nginx/(\\d+)\\.(\\d+)\\.(\\d+)",
+      "condition": "version_lt",
+      "version": [1, 24, 0],
+      "vuln": {
+        "ad": "Nginx {version} HTTP/2 Rapid Reset",
+        "sev": "ORTA",
+        "cve": "CVE-2023-44487",
+        "acik": "HTTP/2 hizli sifirlama DDoS saldirisi",
+        "coz": "Nginx >= 1.25.3 surumune guncelleyin"
+      }
+    },
+    {
+      "port": 3306,
+      "pattern": "mysql.*?(\\d+)\\.(\\d+)\\.(\\d+)",
+      "condition": "version_lt",
+      "version": [8, 0, 33],
+      "vuln": {
+        "ad": "MySQL {version} Elevation of Privilege",
+        "sev": "YUKSEK",
+        "cve": "CVE-2023-21980",
+        "acik": "Yetki yukseltme zaafiyeti",
+        "coz": "MySQL >= 8.0.33 surumune guncelleyin"
+      }
+    }
+  ]
+}
